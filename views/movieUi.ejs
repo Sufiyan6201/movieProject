@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="stylesheet" href="/css/style.css">
+     <!-- bootstrap -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+     <!-- Font Awesome Icon Library -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Rajdhani&family=Roboto:wght@300&display=swap"
+          rel="stylesheet">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+     <!-- Fonts...... -->
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+
+     <!-- Google icons  -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+</head>
+
+<body>
+
+     <%- include("./partials/header.ejs") %>
+          <% data.map((val)=>{
+               const name={moviename,year,duration,catagory,image,dsc,_id}=val
+               %>
+
+
+               <!----movie card---->
+
+               <div class="movie-card">
+                    <div class="content-card">
+                         <img src="<%= image %>">
+                         <span class="shadow"></span>
+                         <div class="content">
+                              <h1>
+                                   <%= moviename %>
+                              </h1>
+                              <p class="date">
+                                   <%= year %>
+                              </p>
+
+                              <b>
+                                   <%= dsc %>
+                              </b>
+                              
+                              <div class="stars">
+                                   <span class="fa fa-star checked"></span>
+                                   <span class="fa fa-star checked"></span>
+                                   <span class="fa fa-star checked"></span>
+                                   <span class="fa fa-star checked"></span>
+                                   <span class="fa fa-star"></span>
+                              </div>
+                              <div class="btn-group">
+
+                                   <a href="/deleteData<%= _id %>"><i
+                                             class="bi bi-trash3 fs-3 btn btn btn-outline-warning rounded py-0 px-2 ms-3"
+                                             style="color: red;"></i></a>
+                                   <a href="/editData<%= _id %>"><i
+                                             class="bi bi-pencil-square fs-4 btn btn btn-outline-warning rounded  py-1 ms-3"
+                                             style="color: red;"></i></a>
+                              </div>
+                              <div class="hex-tag">
+                                   <div class="tag">
+                                        #action
+                                   </div>
+                                   <div class="tag">
+                                        #romantic
+                                   </div>
+                                   <div class="tag">
+                                        #family
+                                   </div>
+                              </div>
+                              <i class="fa fa-angle-up"></i>
+                         </div>
+                    </div>
+                    <!----content card--->
+
+                    <div class="watch-card">
+                         <button>watch now</button>
+                    </div>
+                    <!----watch card---->
+
+               </div>
+               <%}) %>
+
+
+
+
+</body>
+
+</html>
